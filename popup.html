@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coursera Tool Settings</title>
+    <style>
+      :root {
+        --bg: #f6f8fc;
+        --panel: #ffffff;
+        --text: #182033;
+        --muted: #667085;
+        --line: #d7def0;
+        --blue: #2f6df6;
+        --blue-2: #5f87ff;
+        --green: #167c5a;
+        --danger: #c2410c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        width: 360px;
+        min-height: 520px;
+        font: 14px/1.4 "Segoe UI", system-ui, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top right, rgba(95, 135, 255, 0.18), transparent 32%),
+          linear-gradient(180deg, #f9fbff 0%, var(--bg) 100%);
+      }
+
+      .wrap {
+        padding: 16px;
+      }
+
+      .card {
+        background: var(--panel);
+        border: 1px solid rgba(47, 109, 246, 0.12);
+        border-radius: 18px;
+        box-shadow: 0 14px 38px rgba(32, 61, 126, 0.1);
+        overflow: hidden;
+      }
+
+      .hero {
+        padding: 16px;
+        background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%);
+        color: #fff;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .hero p {
+        margin: 6px 0 0;
+        font-size: 12px;
+        opacity: 0.92;
+      }
+
+      .section {
+        padding: 14px 16px;
+        border-top: 1px solid var(--line);
+      }
+
+      .section h2 {
+        margin: 0 0 12px;
+        font-size: 13px;
+      }
+
+      .field {
+        margin-bottom: 12px;
+      }
+
+      .field:last-child {
+        margin-bottom: 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+        color: var(--text);
+        outline: none;
+      }
+
+      input:focus,
+      select:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px rgba(47, 109, 246, 0.12);
+      }
+
+      .hint {
+        margin-top: 6px;
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .row > * {
+        flex: 1;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 12px;
+        padding: 11px 14px;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      #saveBtn {
+        flex: 1;
+        background: linear-gradient(135deg, var(--blue) 0%, var(--blue-2) 100%);
+        color: #fff;
+        font-weight: 700;
+      }
+
+      #resetBtn {
+        background: #edf2ff;
+        color: var(--blue);
+        font-weight: 600;
+      }
+
+      .status {
+        min-height: 18px;
+        margin-top: 10px;
+        font-size: 12px;
+      }
+
+      .status.ok {
+        color: var(--green);
+      }
+
+      .status.err {
+        color: var(--danger);
+      }
+
+      .footer {
+        padding: 12px 16px 16px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <div class="hero">
+          <h1>Coursera Tool</h1>
+          <p>Configure AI provider for auto grading and quiz helpers.</p>
+        </div>
+
+        <div class="section">
+          <h2>AI Settings</h2>
+
+          <div class="field">
+            <label for="aiProvider">Provider</label>
+            <select id="aiProvider">
+              <option value="gemini">Gemini</option>
+              <option value="openai">ChatGPT</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="model">Model</label>
+            <input id="model" type="text" placeholder="gemini-2.0-flash or gpt-4o-mini" />
+            <div class="hint">You can type any valid model name for the selected provider.</div>
+          </div>
+
+          <div class="field" id="geminiField">
+            <label for="geminiAPI">Gemini API Key</label>
+            <input id="geminiAPI" type="password" placeholder="AIza..." />
+          </div>
+
+          <div class="field" id="openaiField">
+            <label for="openaiAPI">OpenAI API Key</label>
+            <input id="openaiAPI" type="password" placeholder="sk-..." />
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="actions">
+            <button id="saveBtn">Save settings</button>
+            <button id="resetBtn" type="button">Reset model</button>
+          </div>
+          <div id="status" class="status"></div>
+        </div>
+
+        <div class="footer">
+          Existing Gemini users remain compatible. Switch provider anytime.
+        </div>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+  </html>
