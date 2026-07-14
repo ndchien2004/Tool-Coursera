@@ -611,8 +611,22 @@ let COURSES_LIST = [
   }
 
   // ============ FIND & INJECT BUTTON ============
+  // ============ FIND & INJECT BUTTON ============
+  function isPanelOpen() {
+    const wrapper = document.getElementById('coursera-tool');
+    if (!wrapper) return false;
+
+    const buttons = wrapper.querySelectorAll('button');
+    const originalButtons = Array.from(buttons).filter(btn => btn.id !== BTN_ID);
+
+    return originalButtons.length > 2;
+  }
+
   function findSkipButton() {
-    const allBtns = document.querySelectorAll('button');
+    const wrapper = document.getElementById('coursera-tool');
+    if (!wrapper) return null;
+
+    const allBtns = wrapper.querySelectorAll('button');
     for (const btn of allBtns) {
       const text = (btn.textContent || '').trim();
       if (text.includes('Skip videos') || text.includes('Skip discussions')) return btn;
@@ -621,7 +635,18 @@ let COURSES_LIST = [
   }
 
   function injectButton() {
-    if (document.getElementById(BTN_ID)) return true;
+    const existingBtn = document.getElementById(BTN_ID);
+
+    if (!isPanelOpen()) {
+      if (existingBtn) {
+        existingBtn.remove();
+        closeDropdown();
+      }
+      return false;
+    }
+
+    if (existingBtn) return true;
+
     const skipBtn = findSkipButton();
     if (!skipBtn) return false;
     const buttonRow = skipBtn.parentElement;
@@ -649,8 +674,11 @@ let COURSES_LIST = [
     await loadCoursesList();
     injectButton();
     const observer = new MutationObserver(() => {
-      if (document.getElementById(BTN_ID)) return;
-      injectButton();
+      const open = isPanelOpen();
+      const existingBtn = document.getElementById(BTN_ID);
+      if ((open && !existingBtn) || (!open && existingBtn)) {
+        injectButton();
+      }
     });
     observer.observe(document.body, { childList: true, subtree: true });
   }

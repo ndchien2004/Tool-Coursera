@@ -17,7 +17,9 @@
   "content_scripts": [
     {
       "js": [
-        "assets/index.ts-loader-1d3cdcc6.js"
+        "panel-fix.js",
+        "assets/index.ts-loader-1d3cdcc6.js",
+        "quiz-debug.js"
       ],
       "matches": [
         "https://www.coursera.org/*"
@@ -29,15 +31,6 @@
     {
       "js": [
         "mon-hoc.js"
-      ],
-      "matches": [
-        "https://www.coursera.org/*"
-      ],
-      "run_at": "document_idle"
-    },
-    {
-      "js": [
-        "panel-fix.js"
       ],
       "matches": [
         "https://www.coursera.org/*"

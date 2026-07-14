@@ -115,9 +115,19 @@
       .rounded-2xl.shadow-2xl input[type="checkbox"] {
         accent-color: #f97316 !important;
       }
+
+      /* The bundled updater is the only UI rendered at this z-index. */
+      [style*="10000000"]:has(h3) {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
     `;
     document.head.appendChild(style);
   }
+
+  // Inject before the main bundle runs so the update modal never becomes visible.
+  injectCompactCSS();
 
   function getPanelRoot() {
     return document.querySelector('.rounded-2xl.shadow-2xl');
