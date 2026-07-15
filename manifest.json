@@ -1,7 +1,7 @@
 {
   "name": "Coursera Tool - Toolkit for Coursera's stuff",
   "description": "Extension helps bypass videos & readings, auto do quizz, auto submit assignment, auto grade reviews, get shareable links in Coursera",
-  "version": "1.0.8",
+  "version": "1.0.12",
   "manifest_version": 3,
   "icons": {
     "48": "img/icon-edge.png"

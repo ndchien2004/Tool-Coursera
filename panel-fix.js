@@ -16,103 +16,103 @@
       /* === PANEL COMPACT FIX === */
       
       /* Giảm max-width và padding panel chính */
-      .rounded-2xl.shadow-2xl.bg-white {
+      #coursera-tool .rounded-2xl.shadow-2xl.bg-white {
         max-width: 250px !important;
         padding: 8px 10px !important;
       }
       
       /* Giảm kích thước header section */
-      .rounded-2xl.shadow-2xl .font-bold.text-sm {
+      #coursera-tool .rounded-2xl.shadow-2xl .font-bold.text-sm {
         font-size: 11px !important;
         margin-bottom: 3px !important;
         margin-top: 3px !important;
       }
       
       /* Giảm padding và font size tất cả button trong panel */
-      .rounded-2xl.shadow-2xl button {
+      #coursera-tool .rounded-2xl.shadow-2xl button {
         padding: 3px 7px !important;
         font-size: 10px !important;
       }
       
       /* Giảm gap giữa các element */
-      .rounded-2xl.shadow-2xl .gap-2 {
+      #coursera-tool .rounded-2xl.shadow-2xl .gap-2 {
         gap: 3px !important;
       }
-      .rounded-2xl.shadow-2xl .gap-3 {
+      #coursera-tool .rounded-2xl.shadow-2xl .gap-3 {
         gap: 4px !important;
       }
-      .rounded-2xl.shadow-2xl .gap-4 {
+      #coursera-tool .rounded-2xl.shadow-2xl .gap-4 {
         gap: 5px !important;
       }
       
       /* Giảm margin sections */
-      .rounded-2xl.shadow-2xl .my-3,
-      .rounded-2xl.shadow-2xl .my-2 {
+      #coursera-tool .rounded-2xl.shadow-2xl .my-3,
+      #coursera-tool .rounded-2xl.shadow-2xl .my-2 {
         margin-top: 4px !important;
         margin-bottom: 4px !important;
       }
-      .rounded-2xl.shadow-2xl .mb-3,
-      .rounded-2xl.shadow-2xl .mb-2 {
+      #coursera-tool .rounded-2xl.shadow-2xl .mb-3,
+      #coursera-tool .rounded-2xl.shadow-2xl .mb-2 {
         margin-bottom: 3px !important;
       }
-      .rounded-2xl.shadow-2xl .mt-3,
-      .rounded-2xl.shadow-2xl .mt-2 {
+      #coursera-tool .rounded-2xl.shadow-2xl .mt-3,
+      #coursera-tool .rounded-2xl.shadow-2xl .mt-2 {
         margin-top: 4px !important;
       }
-      .rounded-2xl.shadow-2xl .mb-4 {
+      #coursera-tool .rounded-2xl.shadow-2xl .mb-4 {
         margin-bottom: 4px !important;
       }
       
       /* Giảm kích thước input và select */
-      .rounded-2xl.shadow-2xl input,
-      .rounded-2xl.shadow-2xl select {
+      #coursera-tool .rounded-2xl.shadow-2xl input,
+      #coursera-tool .rounded-2xl.shadow-2xl select {
         font-size: 10px !important;
         padding: 2px 5px !important;
       }
       
       /* Giảm text footer version */
-      .rounded-2xl.shadow-2xl .text-xs {
+      #coursera-tool .rounded-2xl.shadow-2xl .text-xs {
         font-size: 9px !important;
       }
       
       /* Giảm padding p-5 */
-      .rounded-2xl.shadow-2xl.p-5 {
+      #coursera-tool .rounded-2xl.shadow-2xl.p-5 {
         padding: 8px 10px !important;
       }
 
       /* Giảm border-t section spacing */
-      .rounded-2xl.shadow-2xl .border-t {
+      #coursera-tool .rounded-2xl.shadow-2xl .border-t {
         padding-top: 4px !important;
         margin-top: 4px !important;
       }
 
       /* Giảm khoảng cách dòng "flex justify-between mt-3 mb-2" (Quiz header) */
-      .rounded-2xl.shadow-2xl .flex.justify-between.mt-3.mb-2 {
+      #coursera-tool .rounded-2xl.shadow-2xl .flex.justify-between.mt-3.mb-2 {
         margin-top: 4px !important;
         margin-bottom: 3px !important;
       }
 
       /* Theme cam cho toan bo nut trong panel */
-      .rounded-2xl.shadow-2xl button,
-      .rounded-2xl.shadow-2xl [role="button"] {
+      #coursera-tool .rounded-2xl.shadow-2xl button,
+      #coursera-tool .rounded-2xl.shadow-2xl [role="button"] {
         background: linear-gradient(135deg, #f97316 0%, #fb923c 100%) !important;
         border-color: #ea580c !important;
         color: #fff !important;
         box-shadow: none !important;
       }
 
-      .rounded-2xl.shadow-2xl button:hover,
-      .rounded-2xl.shadow-2xl [role="button"]:hover {
+      #coursera-tool .rounded-2xl.shadow-2xl button:hover,
+      #coursera-tool .rounded-2xl.shadow-2xl [role="button"]:hover {
         background: linear-gradient(135deg, #ea580c 0%, #f97316 100%) !important;
       }
 
-      .rounded-2xl.shadow-2xl input:focus,
-      .rounded-2xl.shadow-2xl select:focus {
+      #coursera-tool .rounded-2xl.shadow-2xl input:focus,
+      #coursera-tool .rounded-2xl.shadow-2xl select:focus {
         border-color: #f97316 !important;
         box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.16) !important;
       }
 
-      .rounded-2xl.shadow-2xl input[type="checkbox"] {
+      #coursera-tool .rounded-2xl.shadow-2xl input[type="checkbox"] {
         accent-color: #f97316 !important;
       }
 
@@ -130,7 +130,7 @@
   injectCompactCSS();
 
   function getPanelRoot() {
-    return document.querySelector('.rounded-2xl.shadow-2xl');
+    return document.querySelector('#coursera-tool .rounded-2xl.shadow-2xl');
   }
 
   function getModelSelect(panel) {
@@ -240,7 +240,7 @@
    */
   function fixButtonLayout() {
     // Tìm panel dựa trên class đặc trưng
-    const panels = document.querySelectorAll('.rounded-2xl.shadow-2xl');
+    const panels = document.querySelectorAll('#coursera-tool .rounded-2xl.shadow-2xl');
     if (panels.length === 0) return false;
 
     let fixed = false;
@@ -291,7 +291,7 @@
    */
   function fixSupportLink() {
     const FB_URL = 'https://www.facebook.com/hoa.nguyenxuan.3979489/';
-    const panels = document.querySelectorAll('.rounded-2xl.shadow-2xl');
+    const panels = document.querySelectorAll('#coursera-tool .rounded-2xl.shadow-2xl');
     panels.forEach(panel => {
       // Tìm tất cả element chứa text "Support"
       const allEls = panel.querySelectorAll('span, a, button, div, p');
